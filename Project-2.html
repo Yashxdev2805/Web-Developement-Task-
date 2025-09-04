@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Startup Showcase & Help Desk
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" type="image/png">
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+            animation: gradientMove 8s ease-in-out infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        header { 
+            background: #2d3e50;
+            color: #fff; 
+            padding: 20px 0; 
+            text-align: center; 
+        }
+        nav {
+            background: #fff; 
+            padding: 10px 0; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        nav a { 
+            margin: 0 15px; 
+            color: #2d3e50; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        .container { 
+            max-width: 1100px; 
+            margin: 30px auto; 
+            background: #fff; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        h2 {
+            color: #2d3e50; 
+        }
+        .section {
+             margin-bottom: 40px;
+        }
+        .resources-list, .markets-list, .programmes-list {
+            list-style: none;
+            padding: 0; 
+            }
+        .resources-list li, .markets-list li, .programmes-list li {
+            margin-bottom: 12px; 
+        }
+        .mentor-form { 
+            background: #f9fafb; 
+            padding: 20px; 
+            border-radius: 6px; 
+        }
+        .mentor-form label {
+            display: block;
+             margin-bottom: 6px; 
+            }
+        .mentor-form input, .mentor-form textarea, .mentor-form select {
+            width: 100%;
+            padding: 8px; 
+            margin-bottom: 14px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        }
+        .mentor-form button {
+            background: #2d3e50; 
+            color: #fff; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        }
+        .mentor-form button:hover {
+            background: #1a2533; 
+        }
+        footer {
+            background: #2d3e50; 
+            color: #fff; 
+            text-align: center; 
+            padding: 15px 0; 
+            margin-top: 40px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1> Help Desk</h1>
+        <p>Empowering new idea holders with mentorship and resources refrences</p>
+    </header>
+    <nav>
+        <a href="#mentorship">Mentorship</a>
+        <a href="#resources">Resources</a>
+        <a href="#markets">Markets</a>
+        <a href="#programmes">Supporting Programmes</a>
+    </nav>
+    <div class="container">
+        <section id="mentorship" class="section">
+            <h2>Get Mentorship</h2>
+            <p>Connect with experienced mentors to guide your startup journey.</p>
+            <form class="mentor-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="idea">Brief About Your Idea</label>
+                <textarea id="idea" name="idea" rows="3" required></textarea>
+                <label for="needs">What help do you need?</label>
+                <select id="needs" name="needs">
+                    <option value="mentorship">Mentorship</option>
+                    <option value="resources">Resources</option>
+                    <option value="market-info">Market Information</option>
+                    <option value="programmes">Supporting Programmes</option>
+                </select>
+                <button type="submit">Request Mentorship</button>
+            </form>
+        </section>
+        <section id="resources" class="section">
+            <h2>Resource Availability</h2>
+            <ul class="resources-list">
+                <li><strong>Employees:</strong> Connect with skilled professionals and interns.</li>
+            </ul>
+        </section>
+        <section id="markets" class="section">
+            <h2>Famous Markets in India</h2>
+            <ul class="markets-list">
+                <li><strong>Nehru Place, Delhi:</strong> Electronics, computers, laptops</li>
+                <li><strong>Crawford Market, Mumbai:</strong> General goods, wholesale products</li>
+                <li><strong>Chor Bazaar, Mumbai:</strong> Old tech products, antiques</li>
+                <li><strong>Manish Market, Mumbai:</strong> Electronics, accessories</li>
+                <li><strong>Richie Street, Chennai:</strong> Electronics, computer parts</li>
+                <li><strong>Other Local Markets:</strong> For paper waste, e-waste, and raw materials</li>
+            </ul>
+        </section>
+        <section id="programmes" class="section">
+            <h2>Supporting Programmes</h2>
+            <ul class="programmes-list">
+                <li><strong>EUREKA - IIT Bombay:</strong> India's largest business model competition. <a href="https://www.ecell.in/eureka/" target="_blank" rel="noopener">Learn More</a></li>
+                <li><strong>Startup India:</strong> Government initiative for startups. <a href="https://www.startupindia.gov.in/" target="_blank" rel="noopener">Learn More</a></li>
+                <li><strong>Atal Innovation Mission:</strong> NITI Aayog's innovation support. <a href="https://aim.gov.in/" target="_blank" rel="noopener">Learn More</a></li>
+                <li><strong>Other Incubators:</strong> IIMs, IITs, local incubators and accelerators</li>
+            </ul>
+        </section>
+    </div>
+    <div style="text-align:center; margin-top:1rem;">
+            <a href="Project-1.html" class="card-link-btn" style="
+                display:inline-block;
+                background:#1e88e5;
+                color:#fff;
+                padding:0.6rem 1.5rem;
+                border-radius:24px;
+                text-decoration:none;
+                font-size:1rem;
+                transition:background 0.2s;
+                margin-top:0.5rem;
+            ">Go Back</a>
+    <footer>
+        &copy; 2025 Startup Showcase Help Desk. All rights reserved.
+    </footer>
+</body>
+</html>
