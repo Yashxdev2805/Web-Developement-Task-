@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Startup Showcase</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: url("hotspot.png") no-repeat center center fixed;
+            background-size: cover;
+            color: #222;
+        }
+        header {
+            background-color: #1565c0;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        .search-bar input {
+            background-color: #222;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            width: 300px;
+            max-width: 90vw;
+            transition: box-shadow 0.2s;
+        }
+        .search-bar input:focus {
+            box-shadow: 0 0 0 2px #1e88e5;
+            outline: none;
+        }
+        .search-bar:hover{
+            transform: translateY(-6px) scale(1.03);
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .card {
+            background-color:aquamarine;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(30,136,229,0.08);
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 6px 24px rgba(30,136,229,0.18);
+        }
+        .card img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover img {
+            box-shadow: 0 0 0 4px #e3f2fd;
+        }
+        .card h3 {
+            margin: 0.2rem 0 0.5rem 0;
+            font-size: 1.2rem;
+            color: #1e88e5;
+            text-align: center;
+        }
+        .card p {
+            font-size: 0.98rem;
+            color: #444;
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+        .card a {
+            color: #fff;
+            background: #1e88e5;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+            margin-top: auto;
+        }
+        .card a:hover {
+            background: #1565c0;
+        }
+        @media (max-width: 600px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+                padding: 0.5rem;
+            }
+            .card {
+                padding: 1rem;
+            }
+        }
+        .form-section {
+            background: #fff;
+            margin: 2rem auto 1rem auto;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(30,136,229,0.08);
+            max-width: 500px;
+        }
+        .form-section h2 {
+            margin-top: 0;
+            color: #1e88e5;
+            text-align: center;
+        }
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .form-section input, .form-section textarea {
+            padding: 0.7rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            resize: vertical;
+        }
+        .form-section button {
+            background: #1565c0;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 0.7rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-section button:hover {
+
+            background: #1565c0;
+        }
+        .success-msg {
+            color: #388e3c;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+            display: none;
+        }
+        p{
+            text-align: center;
+            color:aquamarine;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Startup Showcase</h1>
+        <p>Discover innovative startups & submit your own idea!</p>
+        <div style="text-align:top-right; margin-top:1rem;">
+            <a href="Project-2.html" class="card-link-btn" style="
+                display:inline-block;
+                background:#1e88e5;
+                color:#fff;
+                padding:0.6rem 1.5rem;
+                border-radius:24px;
+                text-decoration:none;
+                font-size:1rem;
+                transition:background 0.2s;
+                margin-top:0.5rem;
+            ">Help Desk For New Ideas</a>
+        </div>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search startups...">
+    </div>
+    <p>Some Startups for Refrences</p>
+    <div class="cards-container" id="cardsContainer">
+        <!-- Startup cards will be injected here -->
+    </div>
+
+    <section class="form-section">
+        <h2>Submit Your Startup Idea</h2>
+        <form id="startupForm">
+            <input type="text" name="name" placeholder="Startup Name" required>
+            <input type="url" name="logo" placeholder="Logo/Image URL" required>
+            <textarea name="description" rows="3" placeholder="Short Description" required></textarea>
+            <input type="url" name="link" placeholder="Website/Link" required>
+            <button type="submit">Submit Idea</button>
+        </form>
+        <div class="success-msg" id="successMsg">Thank you! Your idea has been submitted.</div>
+    </section>
+    
+    <script>
+        // Sample startup data
+        const startups = [
+            {
+                name: "EcoCart",
+                logo: "https://cdn-icons-png.flaticon.com/512/3062/3062634.png",
+                description: "Sustainable shopping made easy. Track your carbon footprint with every purchase.",
+                link: "https://ecocart.io"
+            },
+            {
+                name: "HealthifyMe",
+                logo: "https://cdn-icons-png.flaticon.com/512/2920/2920236.png",
+                description: "AI-powered health & fitness app for personalized nutrition and workouts.",
+                link: "https://healthifyme.com"
+            },
+            {
+                name: "RemoteHQ",
+                logo: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+                description: "Collaborative workspace for remote teams. Share, edit, and brainstorm together.",
+                link: "https://remotehq.com"
+            },
+            {
+                name: "FarmFresh",
+                logo: "https://cdn-icons-png.flaticon.com/512/616/616408.png",
+                description: "Order fresh produce directly from local farms. Healthy, organic, and delivered fast.",
+                link: "https://farmfresh.com"
+            }
+        ];
+
+        // Track which startups are user-added
+        const userAddedIndexes = [];
+
+        function renderCards(filter = "") {
+            const container = document.getElementById('cardsContainer');
+            container.innerHTML = "";
+            const filtered = startups
+                .map((s, i) => ({...s, idx: i}))
+                .filter(s =>
+                    s.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    s.description.toLowerCase().includes(filter.toLowerCase())
+                );
+            if (filtered.length === 0) {
+                container.innerHTML = `<p style="text-align:center;color:#888;">No startups found.</p>`;
+                return;
+            }
+            filtered.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${s.logo}" alt="${s.name} Logo">
+                    <h3>${s.name}</h3>
+                    <p>${s.description}</p>
+                    <a href="${s.link}" target="_blank">Visit Site</a>
+                `;
+                // If this is a user-added startup, show three-dot menu
+                if (userAddedIndexes.includes(s.idx)) {
+                    // Three-dot icon
+                    const menuWrapper = document.createElement('div');
+                    menuWrapper.style.position = "absolute";
+                    menuWrapper.style.top = "12px";
+                    menuWrapper.style.right = "16px";
+                    menuWrapper.style.zIndex = "2";
+
+                    const dotBtn = document.createElement('button');
+                    dotBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="5" cy="12" r="2" fill="#888"/>
+                        <circle cx="12" cy="12" r="2" fill="#888"/>
+                        <circle cx="19" cy="12" r="2" fill="#888"/>
+                    </svg>`;
+                    dotBtn.style.background = "none";
+                    dotBtn.style.border = "none";
+                    dotBtn.style.cursor = "pointer";
+                    dotBtn.style.padding = "0";
+                    dotBtn.style.margin = "0";
+                    dotBtn.style.width = "32px";
+                    dotBtn.style.height = "32px";
+
+                    // Dropdown menu
+                    const dropdown = document.createElement('div');
+                    dropdown.style.position = "absolute";
+                    dropdown.style.top = "36px";
+                    dropdown.style.right = "0";
+                    dropdown.style.background = "#fff";
+                    dropdown.style.boxShadow = "0 2px 8px rgba(0,0,0,0.12)";
+                    dropdown.style.borderRadius = "8px";
+                    dropdown.style.minWidth = "120px";
+                    dropdown.style.display = "none";
+                    dropdown.style.flexDirection = "column";
+                    dropdown.style.fontSize = "0.98rem";
+                    dropdown.style.overflow = "hidden";
+
+                    // Delete command
+                    const delCmd = document.createElement('button');
+                    delCmd.textContent = "Delete";
+                    delCmd.style.background = "none";
+                    delCmd.style.border = "none";
+                    delCmd.style.color = "#e53935";
+                    delCmd.style.padding = "0.7rem 1rem";
+                    delCmd.style.textAlign = "left";
+                    delCmd.style.cursor = "pointer";
+                    delCmd.onmouseover = () => delCmd.style.background = "#f5f5f5";
+                    delCmd.onmouseout = () => delCmd.style.background = "none";
+                    delCmd.onclick = function(e) {
+                        e.stopPropagation();
+                        startups.splice(s.idx, 1);
+                        userAddedIndexes.splice(userAddedIndexes.indexOf(s.idx), 1);
+                        for (let i = 0; i < userAddedIndexes.length; i++) {
+                            if (userAddedIndexes[i] > s.idx) userAddedIndexes[i]--;
+                        }
+                        renderCards(document.getElementById('searchInput').value);
+                    };
+
+                    // Edit command
+                    const editCmd = document.createElement('button');
+                    editCmd.textContent = "Edit";
+                    editCmd.style.background = "none";
+                    editCmd.style.border = "none";
+                    editCmd.style.color = "#1565c0";
+                    editCmd.style.padding = "0.7rem 1rem";
+                    editCmd.style.textAlign = "left";
+                    editCmd.style.cursor = "pointer";
+                    editCmd.onmouseover = () => editCmd.style.background = "#f5f5f5";
+                    editCmd.onmouseout = () => editCmd.style.background = "none";
+                    editCmd.onclick = function(e) {
+                        e.stopPropagation();
+                        // Fill form with current values
+                        const form = document.getElementById('startupForm');
+                        form.name.value = s.name;
+                        form.logo.value = s.logo;
+                        form.description.value = s.description;
+                        form.link.value = s.link;
+                        // Remove the old entry
+                        startups.splice(s.idx, 1);
+                        userAddedIndexes.splice(userAddedIndexes.indexOf(s.idx), 1);
+                        for (let i = 0; i < userAddedIndexes.length; i++) {
+                            if (userAddedIndexes[i] > s.idx) userAddedIndexes[i]--;
+                        }
+                        renderCards(document.getElementById('searchInput').value);
+                    };
+
+                    dropdown.appendChild(delCmd);
+                    dropdown.appendChild(editCmd);
+
+                    // Toggle dropdown
+                    dotBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        dropdown.style.display = dropdown.style.display === "none" ? "flex" : "none";
+                    };
+
+                    // Hide dropdown when clicking outside
+                    document.addEventListener('click', function hideDropdown() {
+                        dropdown.style.display = "none";
+                    }, { once: true });
+
+                    menuWrapper.appendChild(dotBtn);
+                    menuWrapper.appendChild(dropdown);
+                    card.appendChild(menuWrapper);
+                }
+                container.appendChild(card);
+            });
+        }
+
+        // Initial render
+        renderCards();
+
+        // Search/filter functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            renderCards(this.value);
+        });
+
+        // Form submission
+        document.getElementById('startupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const newStartup = {
+                name: form.name.value,
+                logo: form.logo.value,
+                description: form.description.value,
+                link: form.link.value
+            };
+            startups.push(newStartup);
+            userAddedIndexes.push(startups.length - 1);
+            renderCards(document.getElementById('searchInput').value);
+            form.reset();
+            const msg = document.getElementById('successMsg');
+            msg.style.display = 'block';
+            setTimeout(() => { msg.style.display = 'none'; }, 2500);
+        });
+    </script>
+</body>
+</html>
